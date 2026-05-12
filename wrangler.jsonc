@@ -1,0 +1,14 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "ashoksutar",
+  "compatibility_date": "2026-05-05",
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": "Website Data"
+  },
+  "compatibility_flags": [
+    "nodejs_compat"
+  ]
+}
