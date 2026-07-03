@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 — Page Not Found | Ashok Sutar</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #060810;
+      --accent: #4ade80;
+      --accent2: #818cf8;
+      --text: #e2e8f0;
+      --muted: #64748b;
+      --border: rgba(255,255,255,0.07);
+    }
+    html, body { height: 100%; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 24px;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .wrap { position: relative; z-index: 1; max-width: 520px; }
+    .code {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: clamp(4rem, 14vw, 8rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      color: transparent;
+      -webkit-text-stroke: 1.5px var(--accent);
+    }
+    .msg {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      margin: 24px 0 8px;
+    }
+    .sub {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-bottom: 36px;
+    }
+    .actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+      padding: 14px 28px;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-primary { background: var(--accent); color: #000; font-weight: 500; }
+    .btn-primary:hover { background: #86efac; transform: translateY(-2px); }
+    .btn-ghost { border: 1px solid var(--border); color: var(--text); }
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="code">404</div>
+    <p class="msg">// ERROR: Route not found</p>
+    <p class="sub">That page doesn't exist — the link might be broken, mistyped, or moved.</p>
+    <div class="actions">
+      <a href="/" class="btn btn-primary">Back to Home →</a>
+      <a href="/about" class="btn btn-ghost">About Me</a>
+    </div>
+  </div>
+</body>
+</html>
