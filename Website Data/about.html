@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | Ashok Sutar</title>
+  <meta name="description" content="About Ashok Sutar — CS undergrad, competitive programmer, and full-stack builder." />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #060810;
+      --surface: #0d1117;
+      --border: rgba(255,255,255,0.07);
+      --accent: #4ade80;
+      --accent2: #818cf8;
+      --text: #e2e8f0;
+      --muted: #64748b;
+      --card: rgba(255,255,255,0.03);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.6;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 20px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(6,8,16,0.7);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: -0.02em;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+      align-items: center;
+    }
+    .nav-links a {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--accent); }
+
+    .nav-otw {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      border: 1px solid rgba(74,222,128,0.3);
+      padding: 6px 12px;
+      border-radius: 100px;
+      background: rgba(74,222,128,0.06);
+      text-decoration: none;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .nav-otw:hover { background: rgba(74,222,128,0.12); border-color: var(--accent); }
+    .nav-otw-dot {
+      width: 6px; height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: pulse 1.8s infinite;
+      flex-shrink: 0;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.7); }
+    }
+
+    section { position: relative; z-index: 1; }
+
+    /* PAGE HEADER */
+    #about-hero {
+      padding: 160px 48px 60px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .section-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    #about-hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: clamp(2.4rem, 6vw, 4.2rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+
+    /* ABOUT BODY */
+    #about-body {
+      padding: 40px 48px 100px;
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 60px;
+    }
+    .about-text p {
+      font-size: 1.02rem;
+      line-height: 1.8;
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+    .about-text p strong { color: var(--text); font-weight: 500; }
+
+    .side-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 40px;
+    }
+    .skill-pill {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      padding: 8px 14px;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      color: var(--text);
+      background: var(--card);
+    }
+
+    .about-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .about-links a {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--accent2);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .about-links a:hover { color: var(--accent); }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 20px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-decoration: none;
+    }
+    .back-link:hover { color: var(--accent); }
+
+    footer {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: space-between;
+      padding: 32px 48px;
+      border-top: 1px solid var(--border);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--muted);
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    @media (max-width: 720px) {
+      #about-body { grid-template-columns: 1fr; }
+      nav { padding: 16px 20px; }
+      .nav-links { gap: 18px; }
+      #about-hero, #about-body { padding-left: 24px; padding-right: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="/" class="nav-logo">AK/</a>
+    <ul class="nav-links">
+      <li><a href="/about" class="active">About</a></li>
+      <li><a href="/#dsa-stats">Stats</a></li>
+      <li><a href="/#projects">Projects</a></li>
+      <li><a href="/#certifications">Certs</a></li>
+      <li><a href="/#experience">Experience</a></li>
+      <li><a href="/#contact">Contact</a></li>
+      <li><a href="mailto:ashoksutar@gmail.com" class="nav-otw"><span class="nav-otw-dot"></span>Open to Internships</a></li>
+    </ul>
+  </nav>
+
+  <!-- ABOUT HERO -->
+  <section id="about-hero">
+    <div class="section-tag">About</div>
+    <h1>Builder. Solver.<br>Perpetual debugger.</h1>
+  </section>
+
+  <!-- ABOUT BODY -->
+  <section id="about-body">
+    <div class="about-text">
+      <p>
+        I'm a Computer Science undergrad at <strong>ICLES' Motilal Jhunjhunwala College, Vashi</strong>
+        (University of Mumbai), obsessively grinding DSA on GeeksforGeeks while building real-world
+        AI-powered applications.
+      </p>
+      <p>
+        My approach is simple: submit, read the error, fix exactly what broke, repeat.
+        That loop has gotten me through Tarjan's algorithm, Dijkstra variants, 3D DP, and a particularly
+        spicy Huffman encoding tie-breaker at 2 AM.
+      </p>
+      <p>
+        Outside of code, I serve as a <strong>GeeksforGeeks Campus Mantri</strong> — organizing tech programs,
+        creating content, and evangelizing competitive programming on campus. I also run a small study
+        group with a shared notes and solved-problem-set repository, and tinker with DIY electronics
+        on the side.
+      </p>
+      <a href="/" class="back-link">← Back to home</a>
+    </div>
+    <div>
+      <div class="side-label">Tech Stack</div>
+      <div class="skills-grid">
+        <span class="skill-pill">Python</span>
+        <span class="skill-pill">React</span>
+        <span class="skill-pill">FastAPI</span>
+        <span class="skill-pill">JavaScript</span>
+        <span class="skill-pill">C++</span>
+        <span class="skill-pill">Gemini API</span>
+        <span class="skill-pill">Google Cloud</span>
+        <span class="skill-pill">Cloud Run</span>
+        <span class="skill-pill">HTML/CSS</span>
+        <span class="skill-pill">SQL</span>
+        <span class="skill-pill">Git</span>
+        <span class="skill-pill">DSA</span>
+        <span class="skill-pill">Graph Theory</span>
+        <span class="skill-pill">Dynamic Programming</span>
+      </div>
+      <div class="side-label">Elsewhere</div>
+      <div class="about-links">
+        <a href="https://github.com/ashoksutar" target="_blank">GitHub ↗</a>
+        <a href="https://www.linkedin.com/in/ashok-sutar" target="_blank">LinkedIn ↗</a>
+        <a href="https://www.geeksforgeeks.org/user/ashoksutar/" target="_blank">GeeksforGeeks ↗</a>
+        <a href="mailto:ashoksutar@gmail.com">Email Me →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 Ashok Sutar</span>
+    <span>Built with vanilla HTML · Hosted on Cloudflare Pages</span>
+  </footer>
+
+</body>
+</html>
