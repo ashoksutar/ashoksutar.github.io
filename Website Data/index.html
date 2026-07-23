@@ -650,8 +650,24 @@
       display: flex;
       align-items: flex-start;
       gap: 16px;
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+      position: relative;
     }
-    .cert-card:hover { border-color: rgba(255,255,255,0.14); background: rgba(255,255,255,0.04); }
+    .cert-card:hover { border-color: rgba(74,222,128,0.35); background: rgba(255,255,255,0.04); }
+    .cert-card:hover .cert-link { opacity: 1; transform: translateX(0); }
+
+    .cert-link {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      opacity: 0;
+      transform: translateX(-4px);
+      transition: all 0.2s;
+      margin-top: 8px;
+    }
 
     .cert-icon {
       width: 40px; height: 40px;
@@ -934,7 +950,7 @@
         <div class="stat-label">Campus Mantri</div>
       </div>
       <div>
-        <div class="stat-num">FY</div>
+        <div class="stat-num">SY</div>
         <div class="stat-label">B.Sc. CS · MJC Vashi</div>
       </div>
     </div>
@@ -949,7 +965,7 @@
     <div class="about-grid reveal">
       <div class="about-text">
         <p>
-          I'm a first-year CS student at <strong>ICLES' Motilal Jhunjhunwala College, Vashi</strong> (University of Mumbai),
+          I'm a Second-Year CS student at <strong>ICLES' Motilal Jhunjhunwala College, Vashi</strong> (University of Mumbai),
           obsessively grinding DSA on GeeksforGeeks while building real-world AI-powered applications.
         </p>
         <p>
@@ -1222,65 +1238,74 @@
 
   <!-- CERTIFICATIONS -->
   <section id="certifications">
-    <div class="reveal">
-      <div class="section-tag">Certifications</div>
-      <h2>Proof of learning.</h2>
+    <div class="reveal" style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+      <div>
+        <div class="section-tag">Certifications</div>
+        <h2>Proof of learning.</h2>
+      </div>
+      <a href="https://www.credly.com/users/ashok-sutar/badges" target="_blank" rel="noopener noreferrer" class="project-link">View all badges on Credly →</a>
     </div>
     <div class="certs-grid reveal">
 
-      <div class="cert-card">
+      <a class="cert-card" href="https://www.credly.com/users/ashok-sutar/badges" target="_blank" rel="noopener noreferrer">
         <div class="cert-icon green">🍃</div>
         <div class="cert-info">
           <div class="cert-name">MongoDB Developer Certification</div>
           <div class="cert-issuer">MongoDB University</div>
           <div class="cert-year">2024</div>
+          <div class="cert-link">View on Credly →</div>
         </div>
-      </div>
+      </a>
 
-      <div class="cert-card">
+      <a class="cert-card" href="https://www.credly.com/users/ashok-sutar/badges" target="_blank" rel="noopener noreferrer">
         <div class="cert-icon blue">☁️</div>
         <div class="cert-info">
           <div class="cert-name">Google Cloud Fundamentals</div>
           <div class="cert-issuer">Google Cloud / Coursera</div>
           <div class="cert-year">2024</div>
+          <div class="cert-link">View on Credly →</div>
         </div>
-      </div>
+      </a>
 
-      <div class="cert-card">
+      <a class="cert-card" href="https://www.credly.com/users/ashok-sutar/badges" target="_blank" rel="noopener noreferrer">
         <div class="cert-icon purple">🏦</div>
         <div class="cert-info">
           <div class="cert-name">Software Engineering Virtual Experience</div>
           <div class="cert-issuer">J.P. Morgan · Forage</div>
           <div class="cert-year">2024</div>
+          <div class="cert-link">View on Credly →</div>
         </div>
-      </div>
+      </a>
 
-      <div class="cert-card">
+      <a class="cert-card" href="https://www.credly.com/users/ashok-sutar/badges" target="_blank" rel="noopener noreferrer">
         <div class="cert-icon orange">📊</div>
         <div class="cert-info">
           <div class="cert-name">Technology Consulting Simulation</div>
           <div class="cert-issuer">Deloitte Analytics · Forage</div>
           <div class="cert-year">2024</div>
+          <div class="cert-link">View on Credly →</div>
         </div>
-      </div>
+      </a>
 
-      <div class="cert-card">
+      <a class="cert-card" href="https://www.credly.com/users/ashok-sutar/badges" target="_blank" rel="noopener noreferrer">
         <div class="cert-icon purple">🤖</div>
         <div class="cert-info">
           <div class="cert-name">AI Fundamentals</div>
           <div class="cert-issuer">IBM / Coursera</div>
           <div class="cert-year">2024</div>
+          <div class="cert-link">View on Credly →</div>
         </div>
-      </div>
+      </a>
 
-      <div class="cert-card">
+      <a class="cert-card" href="https://www.credly.com/users/ashok-sutar/badges" target="_blank" rel="noopener noreferrer">
         <div class="cert-icon green">📈</div>
         <div class="cert-info">
           <div class="cert-name">Microsoft Excel — Data Analysis</div>
           <div class="cert-issuer">Microsoft</div>
           <div class="cert-year">2024</div>
+          <div class="cert-link">View on Credly →</div>
         </div>
-      </div>
+      </a>
 
     </div>
   </section>
@@ -1324,7 +1349,7 @@
 
       <div class="exp-item">
         <div>
-          <div class="exp-role">B.Sc. Computer Science — FY</div>
+          <div class="exp-role">B.Sc. Computer Science — SY</div>
           <div class="exp-org">ICLES' MJC Vashi · University of Mumbai</div>
           <div class="exp-desc">Core subjects: DSA, OOP with C++, Web Technology, Number Theory & Matrices, DAA. Maintaining a focused track toward AI/data engineering.</div>
         </div>
@@ -1344,17 +1369,17 @@
         <strong style="color:var(--text);">Available Summer 2025.</strong> Drop a message — I read everything.
       </p>
       <div class="contact-links">
-        <a href="mailto:ashoksutar@gmail.com" class="btn btn-primary">Email Me →</a>
+        <a href="mailto:ashoksutar393@gmail.com" class="btn btn-primary">Email Me →</a>
         <a href="https://www.linkedin.com/in/ashok-sutar" target="_blank" class="btn btn-ghost">LinkedIn</a>
         <a href="https://github.com/ashoksutar" target="_blank" class="btn btn-ghost">GitHub</a>
-        <a href="https://www.geeksforgeeks.org/user/ashoksutar/" target="_blank" class="btn btn-ghost">GfG</a>
+        <a href="https://www.geeksforgeeks.org/profile/ashoksuz2ps" target="_blank" class="btn btn-ghost">GfG</a>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <span>© 2025 Ashok Sutar</span>
+    <span>© 2026 Ashok Sutar</span>
     <span>Built with vanilla HTML · Hosted on Cloudflare Pages</span>
   </footer>
 
