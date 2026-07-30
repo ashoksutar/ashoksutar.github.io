@@ -841,6 +841,11 @@
       gap: 16px;
       flex-wrap: wrap;
     }
+    .turnstile-wrap {
+      margin: 0 auto 32px;
+      display: flex;
+      justify-content: center;
+    }
 
     /* FOOTER */
     footer {
@@ -897,6 +902,7 @@
       .section-divider { padding: 0 24px; }
     }
   </style>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
 
@@ -1368,6 +1374,9 @@
         Open to internships, collabs, and interesting problems.<br>
         <strong style="color:var(--text);">Available Summer 2026.</strong> Drop a message — I read everything.
       </p>
+      <div class="turnstile-wrap">
+        <div class="cf-turnstile" data-sitekey="1x00000000000000000000AA" data-theme="dark"></div>
+      </div>
       <div class="contact-links">
         <a href="mailto:ashoksutar393@gmail.com" class="btn btn-primary">Email Me →</a>
         <a href="https://www.linkedin.com/in/ashok-sutar" target="_blank" class="btn btn-ghost">LinkedIn</a>
