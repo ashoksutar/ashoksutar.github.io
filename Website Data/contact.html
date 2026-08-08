@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Ashok Sutar</title>
+  <meta name="description" content="Get in touch with Ashok Sutar — CS undergrad, competitive programmer, and full-stack builder." />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #060810;
+      --surface: #0d1117;
+      --border: rgba(255,255,255,0.07);
+      --accent: #4ade80;
+      --accent2: #818cf8;
+      --text: #e2e8f0;
+      --muted: #64748b;
+      --card: rgba(255,255,255,0.03);
+      --error: #f87171;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.6;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 20px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(6,8,16,0.7);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: -0.02em;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+      align-items: center;
+    }
+    .nav-links a {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--accent); }
+
+    .nav-otw {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      border: 1px solid rgba(74,222,128,0.3);
+      padding: 6px 12px;
+      border-radius: 100px;
+      background: rgba(74,222,128,0.06);
+      text-decoration: none;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .nav-otw:hover { background: rgba(74,222,128,0.12); border-color: var(--accent); }
+    .nav-otw-dot {
+      width: 6px; height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: pulse 1.8s infinite;
+      flex-shrink: 0;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.7); }
+    }
+
+    section { position: relative; z-index: 1; }
+
+    /* PAGE HEADER */
+    #contact-hero {
+      padding: 160px 48px 40px;
+      max-width: 900px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .section-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    #contact-hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: clamp(2.4rem, 6vw, 4.2rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+    #contact-hero p {
+      margin-top: 20px;
+      color: var(--muted);
+      font-size: 1.02rem;
+      line-height: 1.7;
+      max-width: 560px;
+    }
+    #contact-hero p strong { color: var(--text); font-weight: 500; }
+
+    /* CONTACT BODY */
+    #contact-body {
+      flex: 1;
+      padding: 20px 48px 100px;
+      max-width: 900px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 60px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .field label {
+      display: block;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .field input,
+    .field textarea {
+      width: 100%;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 13px 16px;
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 300;
+      outline: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .field input::placeholder,
+    .field textarea::placeholder { color: var(--muted); opacity: 0.7; }
+    .field input:focus,
+    .field textarea:focus {
+      border-color: var(--accent);
+      background: rgba(74,222,128,0.04);
+    }
+    .field textarea { resize: vertical; min-height: 130px; font-family: 'DM Sans', sans-serif; }
+
+    .btn-submit {
+      align-self: flex-start;
+      margin-top: 6px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+      color: var(--bg);
+      background: var(--accent);
+      border: none;
+      padding: 13px 26px;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.15s;
+    }
+    .btn-submit:hover { opacity: 0.88; }
+    .btn-submit:active { transform: scale(0.97); }
+    .btn-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    #form-result {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.78rem;
+      min-height: 1.2em;
+    }
+    #form-result.success { color: var(--accent); }
+    #form-result.error { color: var(--error); }
+
+    .side-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 36px;
+    }
+    .contact-links a {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--accent2);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .contact-links a:hover { color: var(--accent); }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 4px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-decoration: none;
+    }
+    .back-link:hover { color: var(--accent); }
+
+    footer {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: space-between;
+      padding: 32px 48px;
+      border-top: 1px solid var(--border);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--muted);
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    @media (max-width: 720px) {
+      #contact-body { grid-template-columns: 1fr; }
+      nav { padding: 16px 20px; }
+      .nav-links { gap: 18px; }
+      #contact-hero, #contact-body { padding-left: 24px; padding-right: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="/" class="nav-logo">AK/</a>
+    <ul class="nav-links">
+      <li><a href="/about">About</a></li>
+      <li><a href="/#dsa-stats">Stats</a></li>
+      <li><a href="/#projects">Projects</a></li>
+      <li><a href="/#certifications">Certs</a></li>
+      <li><a href="/#experience">Experience</a></li>
+      <li><a href="/contact" class="active">Contact</a></li>
+      <li><a href="mailto:ashoksutar393@gmail.com" class="nav-otw"><span class="nav-otw-dot"></span>Open to Internships</a></li>
+    </ul>
+  </nav>
+
+  <!-- CONTACT HERO -->
+  <section id="contact-hero">
+    <div class="section-tag">Contact</div>
+    <h1>Let's build<br>something.</h1>
+    <p>
+      Open to internships, collabs, and interesting problems.
+      <strong>Available Summer 2026.</strong> Drop a message below — I read everything.
+    </p>
+  </section>
+
+  <!-- CONTACT BODY -->
+  <section id="contact-body">
+    <div>
+      <form id="contactForm">
+        <!-- Web3Forms Access Key: get yours at https://web3forms.com -->
+        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+        <input type="hidden" name="subject" value="New message from ashoksutar.me">
+        <!-- honeypot spam trap, keep hidden -->
+        <input type="checkbox" name="botcheck" style="display:none">
+
+        <div class="field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required>
+        </div>
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="What's on your mind?" required></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit" id="submitBtn">Send Message →</button>
+        <p id="form-result"></p>
+      </form>
+      <a href="/" class="back-link">← Back to home</a>
+    </div>
+
+    <div>
+      <div class="side-label">Elsewhere</div>
+      <div class="contact-links">
+        <a href="mailto:ashoksutar393@gmail.com">Email Me →</a>
+        <a href="https://www.linkedin.com/in/ashok-sutar" target="_blank">LinkedIn ↗</a>
+        <a href="https://github.com/ashoksutar" target="_blank">GitHub ↗</a>
+        <a href="https://www.geeksforgeeks.org/profile/ashoksuz2ps" target="_blank">GfG ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 Ashok Sutar</span>
+    <span>Built with vanilla HTML · Hosted on Cloudflare Pages</span>
+  </footer>
+
+  <script>
+    const form = document.getElementById('contactForm');
+    const result = document.getElementById('form-result');
+    const submitBtn = document.getElementById('submitBtn');
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+      result.textContent = '';
+      result.className = '';
+
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: formData
+        });
+        const data = await response.json();
+
+        if (data.success) {
+          result.textContent = "Message sent — I'll get back to you soon.";
+          result.className = 'success';
+          form.reset();
+        } else {
+          result.textContent = 'Something went wrong. Please try again or email me directly.';
+          result.className = 'error';
+        }
+      } catch (error) {
+        result.textContent = 'Network error. Please try again or email me directly.';
+        result.className = 'error';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Message →';
+      }
+    });
+  </script>
+
+</body>
+</html>
