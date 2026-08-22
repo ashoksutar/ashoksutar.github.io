@@ -7,16 +7,19 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #060810;
+      --bg: #101018;
       --surface: #0d1117;
       --border: rgba(255,255,255,0.07);
-      --accent: #4ade80;
-      --accent2: #818cf8;
+      --accent: #3ECF8E;
+      --accent2: #6C6FF0;
+      --coral: #E2593D;
+      --gold: #E0A030;
+      --sky: #38BDF8;
       --text: #e2e8f0;
       --muted: #64748b;
       --card: rgba(255,255,255,0.03);
@@ -27,7 +30,7 @@
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-weight: 300;
       overflow-x: hidden;
       cursor: none;
@@ -47,7 +50,7 @@
     }
     #cursor-ring {
       width: 36px; height: 36px;
-      border: 1px solid rgba(74,222,128,0.4);
+      border: 1px solid rgba(62,207,142,0.4);
       border-radius: 50%;
       position: fixed;
       pointer-events: none;
@@ -92,7 +95,7 @@
       border-bottom: 1px solid var(--border);
     }
     .nav-logo {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Fraunces', serif;
       font-weight: 800;
       font-size: 1.1rem;
       letter-spacing: -0.02em;
@@ -105,7 +108,7 @@
       align-items: center;
     }
     .nav-links a {
-      font-family: 'DM Mono', monospace;
+      font-family: 'JetBrains Mono', monospace;
       font-size: 0.75rem;
       color: var(--muted);
       text-decoration: none;
@@ -120,19 +123,19 @@
       display: flex;
       align-items: center;
       gap: 7px;
-      font-family: 'DM Mono', monospace;
+      font-family: 'JetBrains Mono', monospace;
       font-size: 0.68rem;
       letter-spacing: 0.06em;
       color: var(--accent);
-      border: 1px solid rgba(74,222,128,0.3);
+      border: 1px solid rgba(62,207,142,0.3);
       padding: 6px 12px;
       border-radius: 100px;
-      background: rgba(74,222,128,0.06);
+      background: rgba(62,207,142,0.06);
       text-decoration: none;
       transition: all 0.2s;
       white-space: nowrap;
     }
-    .nav-otw:hover { background: rgba(74,222,128,0.12); border-color: var(--accent); }
+    .nav-otw:hover { background: rgba(62,207,142,0.12); border-color: var(--accent); }
     .nav-otw-dot {
       width: 6px; height: 6px;
       background: var(--accent);
@@ -159,7 +162,7 @@
     }
 
     .hero-label {
-      font-family: 'DM Mono', monospace;
+      font-family: 'JetBrains Mono', monospace;
       font-size: 0.72rem;
       letter-spacing: 0.2em;
       color: var(--accent);
@@ -170,7 +173,7 @@
     }
 
     h1 {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Fraunces', serif;
       font-weight: 800;
       font-size: clamp(3.5rem, 8vw, 7rem);
       line-height: 0.95;
@@ -222,7 +225,7 @@
     }
 
     .btn {
-      font-family: 'DM Mono', monospace;
+      font-family: 'JetBrains Mono', monospace;
       font-size: 0.8rem;
       letter-spacing: 0.06em;
       padding: 14px 28px;
@@ -254,7 +257,7 @@
       flex-wrap: wrap;
     }
     .stat-num {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Fraunces', serif;
       font-size: 2rem;
       font-weight: 800;
       color: var(--accent);
@@ -264,7 +267,7 @@
       font-size: 1.2rem;
     }
     .stat-label {
-      font-family: 'DM Mono', monospace;
+      font-family: 'JetBrains Mono', monospace;
       font-size: 0.7rem;
       letter-spacing: 0.1em;
       color: var(--muted);
@@ -277,6 +280,75 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
+    /* SPRINGBOARD TILE GRID */
+    .springboard {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: 150px;
+      gap: 14px;
+      margin-top: 64px;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.85s forwards;
+    }
+    .tile {
+      position: relative;
+      border-radius: 20px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-decoration: none;
+      color: #fff;
+      overflow: hidden;
+      cursor: none;
+      transition: transform 0.25s cubic-bezier(.2,.8,.2,1), box-shadow 0.25s;
+      isolation: isolate;
+    }
+    .tile:hover { transform: translateY(-5px) scale(1.02); box-shadow: 0 16px 34px rgba(0,0,0,0.4); }
+    .tile::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(120% 100% at 100% 0%, rgba(255,255,255,0.16), transparent 60%);
+      pointer-events: none;
+    }
+    .tile-glyph { font-size: 1.5rem; line-height: 1; }
+    .tile-title {
+      font-family: 'Fraunces', serif;
+      font-weight: 600;
+      font-size: 1.05rem;
+      letter-spacing: -0.01em;
+      margin-top: auto;
+    }
+    .tile-sub {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      opacity: 0.85;
+      margin-top: 2px;
+      line-height: 1.3;
+    }
+    .tile-tag {
+      position: absolute; top: 14px; right: 14px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6rem;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: rgba(0,0,0,0.25);
+      backdrop-filter: blur(4px);
+      letter-spacing: 0.03em;
+    }
+    .t-forest { background: linear-gradient(155deg, var(--accent), #1F7A50); }
+    .t-indigo { background: linear-gradient(155deg, var(--accent2), #3A3DAE); }
+    .t-coral  { background: linear-gradient(155deg, var(--coral), #A5391F); }
+    .t-sky    { background: linear-gradient(155deg, var(--sky), #1D7DA8); }
+    .t-gold   { background: linear-gradient(155deg, var(--gold), #96690E); }
+    .t-span2  { grid-column: span 2; }
+    .t-row2   { grid-row: span 2; }
+
+    @media (max-width: 768px) {
+      .springboard { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 130px; }
+      .t-row2 { grid-row: span 1; }
+    }
+
     /* ABOUT */
     #about {
       padding: 120px 48px;
@@ -285,7 +357,7 @@
     }
 
     .section-tag {
-      font-family: 'DM Mono', monospace;
+      font-family: 'JetBrains Mono', monospace;
       font-size: 0.7rem;
       letter-spacing: 0.2em;
       color: var(--accent2);
@@ -303,7 +375,7 @@
     }
 
     h2 {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Fraunces', serif;
       font-weight: 700;
       font-size: clamp(2rem, 4vw, 3.2rem);
       letter-spacing: -0.03em;
@@ -333,7 +405,7 @@
     }
 
     .skill-pill {
-      font-family: 'DM Mono', monospace;
+      font-family: 'JetBrains Mono', monospace;
       font-size: 0.72rem;
       padding: 8px 16px;
       border: 1px solid var(--border);
@@ -345,7 +417,7 @@
     .skill-pill:hover {
       border-color: var(--accent);
       color: var(--accent);
-      background: rgba(74,222,128,0.05);
+      background: rgba(62,207,142,0.05);
     }
 
     /* DSA STATS */
@@ -390,22 +462,22 @@
       margin-bottom: 28px;
     }
     .stats-card-title {
-      font-family: 'DM Mono', monospace;
+      font-family: 'JetBrains Mono', monospace;
       font-size: 0.7rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--muted);
     }
     .stats-card-logo {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Fraunces', serif;
       font-size: 0.8rem;
       font-weight: 700;
       padding: 5px 12px;
       border-radius: 4px;
       letter-spacing: 0.04em;
     }
-    .logo-gfg { background: rgba(74,222,128,0.1); color: var(--accent); border: 1px solid rgba(74,222,128,0.2); }
-    .logo-gh { background: rgba(129,140,248,0.1); color: var(--accent2); border: 1px solid rgba(129,140,248,0.2); }
+    .logo-gfg { background: rgba(62,207,142,0.1); color: var(--accent); border: 1px solid rgba(62,207,142,0.2); }
+    .logo-gh { background: rgba(108,111,240,0.1); color: var(--accent2); border: 1px solid rgba(108,111,240,0.2); }
 
     .stats-numbers {
       display: flex;
@@ -414,7 +486,7 @@
     }
     .stats-num-item { }
     .stats-big-num {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Fraunces', serif;
       font-size: 2.4rem;
       font-weight: 800;
       color: var(--accent);
@@ -425,10 +497,10 @@
     .stats-big-num.loading-num {
       font-size: 1rem;
       opacity: 0.4;
-      font-family: 'DM Mono', monospace;
+      font-family: 'JetBrains Mono', monospace;
     }
     .stats-num-label {
-      font-family: 'DM Mono', monospace;
+      font-family: 'JetBrains Mono', monospace;
       font-size: 0.65rem;
       color: var(--muted);
       letter-spacing: 0.1em;
@@ -455,7 +527,7 @@
       height: 100px;
       border: 1px dashed var(--border);
       border-radius: 8px;
-      font-family: 'DM Mono', monospace;
+      font-family: 'JetBrains Mono', monospace;
       font-size: 0.72rem;
       color: var(--muted);
       letter-spacing: 0.06em;
@@ -475,9 +547,9 @@
       background: var(--border);
       transition: background 0.3s;
     }
-    .activity-cell.l1 { background: rgba(74,222,128,0.2); }
-    .activity-cell.l2 { background: rgba(74,222,128,0.45); }
-    .activity-cell.l3 { background: rgba(74,222,128,0.7); }
+    .activity-cell.l1 { background: rgba(62,207,142,0.2); }
+    .activity-cell.l2 { background: rgba(62,207,142,0.45); }
+    .activity-cell.l3 { background: rgba(62,207,142,0.7); }
     .activity-cell.l4 { background: var(--accent); }
 
     /* PROJECTS */
@@ -519,7 +591,7 @@
     .project-card:hover::before { transform: scaleX(1); }
 
     .project-num {
-      font-family: 'DM Mono', monospace;
+      font-family: 'JetBrains Mono', monospace;
       font-size: 0.65rem;
       color: var(--muted);
       letter-spacing: 0.1em;
@@ -527,7 +599,7 @@
     }
 
     .project-title {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Fraunces', serif;
       font-size: 1.2rem;
       font-weight: 700;
       margin-bottom: 12px;
@@ -542,12 +614,12 @@
 
     /* Case study expand */
     .case-study-toggle {
-      font-family: 'DM Mono', monospace;
+      font-family: 'JetBrains Mono', monospace;
       font-size: 0.68rem;
       color: var(--accent2);
       letter-spacing: 0.06em;
       background: none;
-      border: 1px solid rgba(129,140,248,0.2);
+      border: 1px solid rgba(108,111,240,0.2);
       padding: 6px 12px;
       border-radius: 4px;
       cursor: none;
@@ -557,14 +629,14 @@
       align-items: center;
       gap: 6px;
     }
-    .case-study-toggle:hover { background: rgba(129,140,248,0.08); border-color: var(--accent2); }
+    .case-study-toggle:hover { background: rgba(108,111,240,0.08); border-color: var(--accent2); }
 
     .case-study-body {
       display: none;
       margin-bottom: 20px;
       padding: 20px;
-      background: rgba(129,140,248,0.04);
-      border: 1px solid rgba(129,140,248,0.1);
+      background: rgba(108,111,240,0.04);
+      border: 1px solid rgba(108,111,240,0.1);
       border-radius: 8px;
       animation: fadeUp 0.3s forwards;
     }
@@ -579,7 +651,7 @@
     }
     .cs-row:last-child { margin-bottom: 0; }
     .cs-label {
-      font-family: 'DM Mono', monospace;
+      font-family: 'JetBrains Mono', monospace;
       font-size: 0.65rem;
       color: var(--accent2);
       letter-spacing: 0.08em;
@@ -595,11 +667,11 @@
       margin-bottom: 24px;
     }
     .project-tag {
-      font-family: 'DM Mono', monospace;
+      font-family: 'JetBrains Mono', monospace;
       font-size: 0.65rem;
       padding: 4px 10px;
-      background: rgba(129,140,248,0.1);
-      border: 1px solid rgba(129,140,248,0.2);
+      background: rgba(108,111,240,0.1);
+      border: 1px solid rgba(108,111,240,0.2);
       border-radius: 4px;
       color: var(--accent2);
       letter-spacing: 0.04em;
@@ -613,7 +685,7 @@
     }
 
     .project-link {
-      font-family: 'DM Mono', monospace;
+      font-family: 'JetBrains Mono', monospace;
       font-size: 0.72rem;
       color: var(--accent);
       text-decoration: none;
@@ -655,11 +727,11 @@
       cursor: pointer;
       position: relative;
     }
-    .cert-card:hover { border-color: rgba(74,222,128,0.35); background: rgba(255,255,255,0.04); }
+    .cert-card:hover { border-color: rgba(62,207,142,0.35); background: rgba(255,255,255,0.04); }
     .cert-card:hover .cert-link { opacity: 1; transform: translateX(0); }
 
     .cert-link {
-      font-family: 'DM Mono', monospace;
+      font-family: 'JetBrains Mono', monospace;
       font-size: 0.6rem;
       letter-spacing: 0.06em;
       color: var(--accent);
@@ -678,28 +750,28 @@
       font-size: 1.1rem;
       flex-shrink: 0;
     }
-    .cert-icon.green { background: rgba(74,222,128,0.1); border: 1px solid rgba(74,222,128,0.2); }
-    .cert-icon.purple { background: rgba(129,140,248,0.1); border: 1px solid rgba(129,140,248,0.2); }
+    .cert-icon.green { background: rgba(62,207,142,0.1); border: 1px solid rgba(62,207,142,0.2); }
+    .cert-icon.purple { background: rgba(108,111,240,0.1); border: 1px solid rgba(108,111,240,0.2); }
     .cert-icon.blue { background: rgba(56,189,248,0.1); border: 1px solid rgba(56,189,248,0.2); }
     .cert-icon.orange { background: rgba(251,146,60,0.1); border: 1px solid rgba(251,146,60,0.2); }
 
     .cert-info { flex: 1; }
     .cert-name {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Fraunces', serif;
       font-weight: 700;
       font-size: 0.9rem;
       margin-bottom: 4px;
       line-height: 1.3;
     }
     .cert-issuer {
-      font-family: 'DM Mono', monospace;
+      font-family: 'JetBrains Mono', monospace;
       font-size: 0.65rem;
       letter-spacing: 0.06em;
       color: var(--muted);
       margin-bottom: 6px;
     }
     .cert-year {
-      font-family: 'DM Mono', monospace;
+      font-family: 'JetBrains Mono', monospace;
       font-size: 0.62rem;
       color: var(--accent);
       letter-spacing: 0.08em;
@@ -727,12 +799,12 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at top left, rgba(74,222,128,0.04) 0%, transparent 60%);
+      background: radial-gradient(ellipse at top left, rgba(62,207,142,0.04) 0%, transparent 60%);
       pointer-events: none;
     }
 
     .now-col-label {
-      font-family: 'DM Mono', monospace;
+      font-family: 'JetBrains Mono', monospace;
       font-size: 0.65rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
@@ -789,13 +861,13 @@
     .exp-item:hover { border-color: rgba(255,255,255,0.14); background: rgba(255,255,255,0.04); }
 
     .exp-role {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Fraunces', serif;
       font-weight: 700;
       font-size: 1rem;
       margin-bottom: 4px;
     }
     .exp-org {
-      font-family: 'DM Mono', monospace;
+      font-family: 'JetBrains Mono', monospace;
       font-size: 0.75rem;
       color: var(--accent);
       margin-bottom: 10px;
@@ -807,7 +879,7 @@
       line-height: 1.6;
     }
     .exp-date {
-      font-family: 'DM Mono', monospace;
+      font-family: 'JetBrains Mono', monospace;
       font-size: 0.68rem;
       color: var(--muted);
       letter-spacing: 0.08em;
@@ -853,7 +925,7 @@
       z-index: 1;
     }
     footer span {
-      font-family: 'DM Mono', monospace;
+      font-family: 'JetBrains Mono', monospace;
       font-size: 0.7rem;
       color: var(--muted);
       letter-spacing: 0.06em;
@@ -867,8 +939,8 @@
       z-index: 0;
       opacity: 0.12;
     }
-    .orb-1 { width: 600px; height: 600px; background: #4ade80; top: -200px; left: -200px; }
-    .orb-2 { width: 500px; height: 500px; background: #818cf8; bottom: -150px; right: -150px; }
+    .orb-1 { width: 600px; height: 600px; background: #3ECF8E; top: -200px; left: -200px; }
+    .orb-2 { width: 500px; height: 500px; background: #6C6FF0; bottom: -150px; right: -150px; }
 
     .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s, transform 0.7s; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
@@ -932,27 +1004,67 @@
       Competitive programmer by habit, full-stack builder by choice.
     </p>
     <div class="hero-cta">
-      <a href="#projects" class="btn btn-primary">View Projects →</a>
-      <a href="mailto:ashoksutar393@gmail.com" class="btn btn-ghost">Hire Me →</a>
+      <a href="mailto:ashoksutar393@gmail.com" class="btn btn-primary">Hire Me →</a>
       <a href="/contact" class="btn btn-ghost">Get in Touch</a>
     </div>
-    <div class="hero-stats">
-      <div>
-        <div class="stat-num" id="hero-problems">200+</div>
-        <div class="stat-label">DSA Problems Solved</div>
-      </div>
-      <div>
-        <div class="stat-num">3+</div>
-        <div class="stat-label">Live Projects</div>
-      </div>
-      <div>
-        <div class="stat-num">GfG</div>
-        <div class="stat-label">Campus Mantri</div>
-      </div>
-      <div>
-        <div class="stat-num">SY</div>
-        <div class="stat-label">B.Sc. CS · MJC Vashi</div>
-      </div>
+
+    <div class="springboard">
+      <a href="/about" class="tile t-indigo t-row2">
+        <span class="tile-tag">SY · CS</span>
+        <span class="tile-glyph">🧭</span>
+        <div>
+          <div class="tile-title">About</div>
+          <div class="tile-sub">Builder. Solver. MJC Vashi.</div>
+        </div>
+      </a>
+      <a href="#dsa-stats" class="tile t-forest">
+        <span class="tile-tag" id="hero-problems">200+</span>
+        <span class="tile-glyph">📈</span>
+        <div>
+          <div class="tile-title">Stats</div>
+          <div class="tile-sub">DSA problems solved</div>
+        </div>
+      </a>
+      <a href="#projects" class="tile t-coral">
+        <span class="tile-tag">3+</span>
+        <span class="tile-glyph">⚙️</span>
+        <div>
+          <div class="tile-title">Projects</div>
+          <div class="tile-sub">AI pipelines & agents</div>
+        </div>
+      </a>
+      <a href="https://www.geeksforgeeks.org/user/ashoksutar/" target="_blank" class="tile t-gold">
+        <span class="tile-tag">GfG</span>
+        <span class="tile-glyph">🧑‍💻</span>
+        <div>
+          <div class="tile-title">Campus Mantri</div>
+          <div class="tile-sub">Student ambassador</div>
+        </div>
+      </a>
+      <a href="#certifications" class="tile t-sky t-span2">
+        <span class="tile-tag">6 badges</span>
+        <span class="tile-glyph">🎓</span>
+        <div>
+          <div class="tile-title">Certifications</div>
+          <div class="tile-sub">MongoDB · GCP · JPMorgan · Deloitte · IBM · Microsoft</div>
+        </div>
+      </a>
+      <a href="#experience" class="tile t-indigo">
+        <span class="tile-tag">2024—</span>
+        <span class="tile-glyph">🗂</span>
+        <div>
+          <div class="tile-title">Experience</div>
+          <div class="tile-sub">Where I've been</div>
+        </div>
+      </a>
+      <a href="/contact" class="tile t-forest">
+        <span class="tile-tag">open</span>
+        <span class="tile-glyph">✉</span>
+        <div>
+          <div class="tile-title">Contact</div>
+          <div class="tile-sub">Let's build something</div>
+        </div>
+      </a>
     </div>
   </section>
 
@@ -980,7 +1092,7 @@
         <p><a href="/about" class="project-link">Read the full bio →</a></p>
       </div>
       <div>
-        <p style="font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.12em;color:var(--muted);text-transform:uppercase;margin-bottom:20px;">Tech Stack</p>
+        <p style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;letter-spacing:0.12em;color:var(--muted);text-transform:uppercase;margin-bottom:20px;">Tech Stack</p>
         <div class="skills-grid">
           <span class="skill-pill">Python</span>
           <span class="skill-pill">React</span>
@@ -1032,7 +1144,7 @@
           </div>
         </div>
         <div style="margin-top:24px;">
-          <div style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;color:var(--muted);text-transform:uppercase;margin-bottom:12px;">Recent Topics</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;color:var(--muted);text-transform:uppercase;margin-bottom:12px;">Recent Topics</div>
           <div style="display:flex;flex-wrap:wrap;gap:8px;">
             <span class="project-tag">Graph Theory</span>
             <span class="project-tag">Dynamic Programming</span>
@@ -1063,7 +1175,7 @@
           </div>
         </div>
         <div class="gh-graph-container">
-          <div style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;color:var(--muted);text-transform:uppercase;margin-bottom:12px;">Contribution Graph</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;color:var(--muted);text-transform:uppercase;margin-bottom:12px;">Contribution Graph</div>
           <img
             class="gh-graph-img"
             src="https://ghchart.ssh.surf/ashoksutar"
@@ -1436,7 +1548,7 @@
       const isOpen = body.classList.toggle('open');
       arrow.textContent = isOpen ? '▼' : '▶';
       btn.style.color = isOpen ? 'var(--accent)' : 'var(--accent2)';
-      btn.style.borderColor = isOpen ? 'rgba(74,222,128,0.3)' : 'rgba(129,140,248,0.2)';
+      btn.style.borderColor = isOpen ? 'rgba(62,207,142,0.3)' : 'rgba(108,111,240,0.2)';
     }
 
     // GitHub stats via public API
