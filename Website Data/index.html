@@ -1062,11 +1062,11 @@
         </div>
       </a>
       <a href="#certifications" class="tile t-sky t-span2">
-        <span class="tile-tag">6 badges</span>
+        <span class="tile-tag" id="hero-badge-count">— badges</span>
         <span class="tile-glyph">🎓</span>
         <div>
           <div class="tile-title">Certifications</div>
-          <div class="tile-sub">MongoDB · GCP · JPMorgan · Deloitte · IBM · Microsoft</div>
+          <div class="tile-sub">MongoDB · Google Cloud · IBM · more</div>
         </div>
       </a>
       <a href="#experience" class="tile t-indigo">
@@ -1574,13 +1574,14 @@
 
     async function loadCertifications() {
       const grid = document.getElementById('certs-grid');
-      if (!grid) return;
+      const heroCount = document.getElementById('hero-badge-count');
       try {
         const res = await fetch('/certs.json', { cache: 'no-store' });
         if (!res.ok) return;
         const certs = await res.json();
         if (!Array.isArray(certs) || certs.length === 0) return;
-        grid.innerHTML = certs.map(certCardHTML).join('\n');
+        if (grid) grid.innerHTML = certs.map(certCardHTML).join('\n');
+        if (heroCount) heroCount.textContent = `${certs.length} badges`;
       } catch (e) {
         // Silently fail — grid stays empty rather than showing stale markup
       }
