@@ -1,63 +1,264 @@
 [
   {
-    "name": "MongoDB Developer Certification",
-    "issuer": "MongoDB University",
-    "year": "2024",
-    "url": "https://www.credly.com/users/ashok-sutar/badges",
-    "image_url": null,
-    "source": "credly",
-    "icon_emoji": "🍃",
-    "icon_class": "green"
+    "name": "Build a Data Warehouse with BigQuery Skill Badge",
+    "issuer": "Google Cloud",
+    "year": "2026",
+    "url": "https://www.credly.com/badges/ed46eec9-0792-4c6e-bef0-bce8ec39806b",
+    "image_url": "https://images.credly.com/images/8ab21779-042f-4616-a6ab-fd0d62648b24/image.png",
+    "issued_at_date": "2026-07-19",
+    "source": "credly"
   },
   {
-    "name": "Google Cloud Fundamentals",
-    "issuer": "Google Cloud / Coursera",
-    "year": "2024",
-    "url": "https://www.credly.com/users/ashok-sutar/badges",
-    "image_url": null,
-    "source": "credly",
-    "icon_emoji": "☁️",
-    "icon_class": "blue"
+    "name": "Create Your First Gemini Enterprise Application",
+    "issuer": "Google Cloud",
+    "year": "2026",
+    "url": "https://www.credly.com/badges/cac64c19-7ec6-447d-b91d-576ca218afc8",
+    "image_url": "https://images.credly.com/images/3c923d13-42da-4765-995d-59f3030e042a/blob",
+    "issued_at_date": "2026-07-19",
+    "source": "credly"
   },
   {
-    "name": "AI Fundamentals",
-    "issuer": "IBM / Coursera",
-    "year": "2024",
-    "url": "https://www.credly.com/users/ashok-sutar/badges",
-    "image_url": null,
-    "source": "credly",
-    "icon_emoji": "🤖",
-    "icon_class": "purple"
+    "name": "Optimize Costs for Google Kubernetes Engine Skill Badge",
+    "issuer": "Google Cloud",
+    "year": "2026",
+    "url": "https://www.credly.com/badges/82f80f8b-1a92-4150-baf6-6f38c616c72c",
+    "image_url": "https://images.credly.com/images/258d3147-f075-4308-bdb0-fb8d5e1d4d0e/image.png",
+    "issued_at_date": "2026-07-19",
+    "source": "credly"
+  },
+  {
+    "name": "Build Serverless Applications with Cloud Run Functions",
+    "issuer": "Google Cloud",
+    "year": "2026",
+    "url": "https://www.credly.com/badges/8c53e60d-86c2-46bb-87e2-ff971d03b7f1",
+    "image_url": "https://images.credly.com/images/68d09678-1374-4c02-a021-13657a5431c7/blob",
+    "issued_at_date": "2026-07-18",
+    "source": "credly"
+  },
+  {
+    "name": "Mitigate Threats and Vulnerabilities with Security Command Center Skill Badge",
+    "issuer": "Google Cloud",
+    "year": "2026",
+    "url": "https://www.credly.com/badges/80547f5d-19e6-4d83-a8ea-a9c368ad57d5",
+    "image_url": "https://images.credly.com/images/122ab775-7bbd-4167-a3b5-5dd92b4e02f6/image.png",
+    "issued_at_date": "2026-07-18",
+    "source": "credly"
+  },
+  {
+    "name": "Use APIs to Work with Cloud Storage Skill Badge",
+    "issuer": "Google Cloud",
+    "year": "2026",
+    "url": "https://www.credly.com/badges/8fc3d00d-1405-48ca-8598-512869319941",
+    "image_url": "https://images.credly.com/images/0c6a247d-8bbd-407b-8f83-dd863d251587/image.png",
+    "issued_at_date": "2026-07-13",
+    "source": "credly"
+  },
+  {
+    "name": "Discover and Protect Sensitive Data Across Your Ecosystem Skill Badge",
+    "issuer": "Google Cloud",
+    "year": "2026",
+    "url": "https://www.credly.com/badges/fef1d17d-8cda-4119-aa6b-5d69c6dff13a",
+    "image_url": "https://images.credly.com/images/a380b061-fd3a-4cb4-8835-9efa241a35a5/blob",
+    "issued_at_date": "2026-07-12",
+    "source": "credly"
+  },
+  {
+    "name": "Secure Software Delivery Skill Badge",
+    "issuer": "Google Cloud",
+    "year": "2026",
+    "url": "https://www.credly.com/badges/466386e4-50ff-462f-8a5a-547266c0dede",
+    "image_url": "https://images.credly.com/images/dd932e71-6255-4c38-b873-7c2f6a44c1f6/blob",
+    "issued_at_date": "2026-07-11",
+    "source": "credly"
+  },
+  {
+    "name": "Build Infrastructure with Terraform on Google Cloud Skill Badge",
+    "issuer": "Google Cloud",
+    "year": "2026",
+    "url": "https://www.credly.com/badges/f6f083ad-1384-4635-960d-7becbeedd253",
+    "image_url": "https://images.credly.com/images/b18154fb-9bd3-47e5-a6f1-554be512947d/image.png",
+    "issued_at_date": "2026-07-10",
+    "source": "credly"
+  },
+  {
+    "name": "App Building with AppSheet Skill Badge",
+    "issuer": "Google Cloud",
+    "year": "2026",
+    "url": "https://www.credly.com/badges/1bce3b26-ae0e-4bad-9fb8-d69d3d93628e",
+    "image_url": "https://images.credly.com/images/cdd80963-5ccb-4981-b01c-5344a9a3e8df/image.png",
+    "issued_at_date": "2026-07-07",
+    "source": "credly"
+  },
+  {
+    "name": "McKinsey.org Forward Program",
+    "issuer": "McKinsey.org",
+    "year": "2026",
+    "url": "https://www.credly.com/badges/bf5b0045-f0ad-4926-900d-42405f6ec1fe",
+    "image_url": "https://images.credly.com/images/94f4180f-4139-4529-9cd1-c5ae95b12f5f/blob",
+    "issued_at_date": "2026-06-23",
+    "source": "credly"
+  },
+  {
+    "name": "Google Prompting Essentials",
+    "issuer": "Coursera",
+    "year": "2026",
+    "url": "https://www.credly.com/badges/8f0bdae8-f32d-43dd-bd9b-091e71b206c7",
+    "image_url": "https://images.credly.com/images/e5d0c55b-6904-4764-973a-25bd210ccd1a/blob",
+    "issued_at_date": "2026-05-25",
+    "source": "credly"
+  },
+  {
+    "name": "Build a Data Mesh with Dataplex Skill Badge",
+    "issuer": "Google Cloud",
+    "year": "2026",
+    "url": "https://www.credly.com/badges/f5197be3-e9c0-4cca-88af-522bab60cf76",
+    "image_url": "https://images.credly.com/images/c4acff27-5baa-452f-a6b2-ab875da12dfd/image.png",
+    "issued_at_date": "2026-05-24",
+    "source": "credly"
+  },
+  {
+    "name": "Develop Serverless Apps with Firebase Skill Badge",
+    "issuer": "Google Cloud",
+    "year": "2026",
+    "url": "https://www.credly.com/badges/57e35516-9a34-4cfa-9f05-7f2e48e8e87c",
+    "image_url": "https://images.credly.com/images/826e89a5-1a1d-4e6c-b740-531957965a78/image.png",
+    "issued_at_date": "2026-05-24",
+    "source": "credly"
+  },
+  {
+    "name": "Implement Cloud Security Fundamentals on Google Cloud Skill Badge",
+    "issuer": "Google Cloud",
+    "year": "2026",
+    "url": "https://www.credly.com/badges/4a550ce3-eca8-42a4-951a-5d287864fa33",
+    "image_url": "https://images.credly.com/images/f1dbea96-0ef4-4857-bb85-3d208a82de10/image.png",
+    "issued_at_date": "2026-05-24",
+    "source": "credly"
+  },
+  {
+    "name": "Implement DevOps Workflows in Google Cloud Skill Badge",
+    "issuer": "Google Cloud",
+    "year": "2026",
+    "url": "https://www.credly.com/badges/8b1b42c4-72df-4186-b7b1-4bb080aa4b4a",
+    "image_url": "https://images.credly.com/images/7514501c-47e3-4766-a833-2f45eacdf615/image.png",
+    "issued_at_date": "2026-05-24",
+    "source": "credly"
+  },
+  {
+    "name": "Google AI Essentials V1",
+    "issuer": "Coursera",
+    "year": "2026",
+    "url": "https://www.credly.com/badges/a330fb23-6d14-424d-bf88-777d2dc38a03",
+    "image_url": "https://images.credly.com/images/ea3eec65-ddad-4242-9c59-1defac0fa2d9/image.png",
+    "issued_at_date": "2026-05-20",
+    "source": "credly"
+  },
+  {
+    "name": "The Basics of Google Cloud Compute Skill Badge",
+    "issuer": "Google Cloud",
+    "year": "2026",
+    "url": "https://www.credly.com/badges/2d8227c1-7180-4c03-901c-e0e84689e062",
+    "image_url": "https://images.credly.com/images/7623fefd-ebbd-4d8f-a053-f41dca852d9e/image.png",
+    "issued_at_date": "2026-05-13",
+    "source": "credly"
+  },
+  {
+    "name": "Build a Website on Google Cloud Skill Badge",
+    "issuer": "Google Cloud",
+    "year": "2026",
+    "url": "https://www.credly.com/badges/720ff2d6-e5b5-47fe-ae33-c7a796f4ba65",
+    "image_url": "https://images.credly.com/images/cfcacbf1-1f76-40ad-be09-a5b057e31ebf/image.png",
+    "issued_at_date": "2026-05-12",
+    "source": "credly"
+  },
+  {
+    "name": "Deploy and Manage Applications on Google App Engine",
+    "issuer": "Google Cloud",
+    "year": "2026",
+    "url": "https://www.credly.com/badges/8a6f5bef-3622-4a89-ab4a-2ecfcc1e8056",
+    "image_url": "https://images.credly.com/images/3f7aa8de-4e83-4fc8-95a8-ff28ec3cdb61/blob",
+    "issued_at_date": "2026-05-12",
+    "source": "credly"
+  },
+  {
+    "name": "Set Up a Google Cloud Network Skill Badge",
+    "issuer": "Google Cloud",
+    "year": "2026",
+    "url": "https://www.credly.com/badges/6ee524d8-0e01-4132-8ecb-00c9491f74b4",
+    "image_url": "https://images.credly.com/images/189c5c31-67c6-4eae-87dc-3b8185a99043/image.png",
+    "issued_at_date": "2026-05-12",
+    "source": "credly"
+  },
+  {
+    "name": "Use Machine Learning APIs on Google Cloud Skill Badge",
+    "issuer": "Google Cloud",
+    "year": "2026",
+    "url": "https://www.credly.com/badges/88673b61-585c-4ded-983a-727f89506b30",
+    "image_url": "https://images.credly.com/images/1d95accd-3e3d-466f-a432-5dceb4998fd1/image.png",
+    "issued_at_date": "2026-05-12",
+    "source": "credly"
+  },
+  {
+    "name": "Engineer AI Agents with Agent Development Kit (ADK)",
+    "issuer": "Google Cloud",
+    "year": "2026",
+    "url": "https://www.credly.com/badges/d2760644-a1ad-44df-aaad-10422bee6453",
+    "image_url": "https://images.credly.com/images/000655a5-3837-4c38-b906-2eb9c059ab36/blob",
+    "issued_at_date": "2026-05-10",
+    "source": "credly"
+  },
+  {
+    "name": "MongoDB Overview: Core Concepts and Architecture",
+    "issuer": "MongoDB",
+    "year": "2026",
+    "url": "https://www.credly.com/badges/d8f907df-41b9-4d56-b286-3133004135ad",
+    "image_url": "https://images.credly.com/images/0b4c54ef-b1d8-4aa7-a658-230b74dec7f6/blob",
+    "issued_at_date": "2026-04-13",
+    "source": "credly"
+  },
+  {
+    "name": "Machine Learning with Python - Level 1",
+    "issuer": "IBM",
+    "year": "2026",
+    "url": "https://www.credly.com/badges/2f187131-ecdf-4a6a-8f21-7258689782f6",
+    "image_url": "https://images.credly.com/images/ede27d34-ab6b-4eef-8808-f266564df2a2/blob",
+    "issued_at_date": "2026-01-10",
+    "source": "credly"
+  },
+  {
+    "name": "Career Management Essentials",
+    "issuer": "IBM SkillsBuild",
+    "year": "2025",
+    "url": "https://www.credly.com/badges/c8be6485-3d23-4ee9-9d16-4db5045fe35c",
+    "image_url": "https://images.credly.com/images/b37c7936-153c-430c-b34f-a288fd2c5329/BadgeEmblem_CareerManagementEssentials.png",
+    "issued_at_date": "2025-09-19",
+    "source": "credly"
   },
   {
     "name": "Data Analysis Using Python",
-    "issuer": "IBM · Coursera",
-    "year": "2026",
-    "url": "https://www.credly.com/users/ashok-sutar/badges",
-    "image_url": null,
-    "source": "credly",
-    "icon_emoji": "🐍",
-    "icon_class": "blue"
+    "issuer": "IBM",
+    "year": "2025",
+    "url": "https://www.credly.com/badges/e446a75d-531e-4742-8d8f-5a9d6f02a475",
+    "image_url": "https://images.credly.com/images/f5bb6420-710c-4508-bd1f-df3a9d3fafb0/blob",
+    "issued_at_date": "2025-09-08",
+    "source": "credly"
   },
   {
-    "name": "Google AI Essentials",
-    "issuer": "Google",
-    "year": "2026",
-    "url": "https://www.credly.com/users/ashok-sutar/badges",
-    "image_url": null,
-    "source": "credly",
-    "icon_emoji": "✨",
-    "icon_class": "green"
+    "name": "Python for Data Science",
+    "issuer": "IBM",
+    "year": "2025",
+    "url": "https://www.credly.com/badges/5def9902-136d-4eb5-a50c-6511386a24f5",
+    "image_url": "https://images.credly.com/images/b40db465-587f-45eb-a854-af8630a630e7/blob",
+    "issued_at_date": "2025-09-07",
+    "source": "credly"
   },
   {
-    "name": "MySQL Explorer",
-    "issuer": "Oracle",
-    "year": "2026",
-    "url": "https://www.credly.com/users/ashok-sutar/badges",
-    "image_url": null,
-    "source": "credly",
-    "icon_emoji": "🗄️",
-    "icon_class": "orange"
+    "name": "Data Science Tools",
+    "issuer": "IBM",
+    "year": "2025",
+    "url": "https://www.credly.com/badges/0c66ea3e-0946-430c-a2c4-2d030b5bbfea",
+    "image_url": "https://images.credly.com/images/aa8b8df6-98d7-4bf5-9546-dd4c1103d718/blob",
+    "issued_at_date": "2025-09-06",
+    "source": "credly"
   },
   {
     "name": "Software Engineering Virtual Experience",
