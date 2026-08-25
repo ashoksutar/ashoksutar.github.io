@@ -1,0 +1,41 @@
+name: Sync Credly certifications
+
+on:
+  schedule:
+    # Runs once a day at 06:00 UTC (~11:30 AM IST)
+    - cron: "0 6 * * *"
+  workflow_dispatch: {}
+  push:
+    paths:
+      - "Website Data/certs-manual.json"
+      - "scripts/sync_certs.py"
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Sync certs.json from Credly
+        run: python3 scripts/sync_certs.py
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "certs-sync-bot"
+          git config user.email "actions@users.noreply.github.com"
+          if ! git diff --quiet -- "Website Data/certs.json"; then
+            git add "Website Data/certs.json"
+            git commit -m "Auto-sync certifications from Credly"
+            git push
+          else
+            echo "No changes to certs.json — nothing to commit."
+          fi

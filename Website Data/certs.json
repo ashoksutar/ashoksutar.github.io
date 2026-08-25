@@ -1,0 +1,98 @@
+[
+  {
+    "name": "MongoDB Developer Certification",
+    "issuer": "MongoDB University",
+    "year": "2024",
+    "url": "https://www.credly.com/users/ashok-sutar/badges",
+    "image_url": null,
+    "source": "credly",
+    "icon_emoji": "🍃",
+    "icon_class": "green"
+  },
+  {
+    "name": "Google Cloud Fundamentals",
+    "issuer": "Google Cloud / Coursera",
+    "year": "2024",
+    "url": "https://www.credly.com/users/ashok-sutar/badges",
+    "image_url": null,
+    "source": "credly",
+    "icon_emoji": "☁️",
+    "icon_class": "blue"
+  },
+  {
+    "name": "AI Fundamentals",
+    "issuer": "IBM / Coursera",
+    "year": "2024",
+    "url": "https://www.credly.com/users/ashok-sutar/badges",
+    "image_url": null,
+    "source": "credly",
+    "icon_emoji": "🤖",
+    "icon_class": "purple"
+  },
+  {
+    "name": "Data Analysis Using Python",
+    "issuer": "IBM · Coursera",
+    "year": "2026",
+    "url": "https://www.credly.com/users/ashok-sutar/badges",
+    "image_url": null,
+    "source": "credly",
+    "icon_emoji": "🐍",
+    "icon_class": "blue"
+  },
+  {
+    "name": "Google AI Essentials",
+    "issuer": "Google",
+    "year": "2026",
+    "url": "https://www.credly.com/users/ashok-sutar/badges",
+    "image_url": null,
+    "source": "credly",
+    "icon_emoji": "✨",
+    "icon_class": "green"
+  },
+  {
+    "name": "MySQL Explorer",
+    "issuer": "Oracle",
+    "year": "2026",
+    "url": "https://www.credly.com/users/ashok-sutar/badges",
+    "image_url": null,
+    "source": "credly",
+    "icon_emoji": "🗄️",
+    "icon_class": "orange"
+  },
+  {
+    "name": "Software Engineering Virtual Experience",
+    "issuer": "J.P. Morgan · Forage",
+    "year": "2024",
+    "url": "https://www.credly.com/users/ashok-sutar/badges",
+    "icon_emoji": "🏦",
+    "icon_class": "purple",
+    "source": "manual"
+  },
+  {
+    "name": "Technology Consulting Simulation",
+    "issuer": "Deloitte Analytics · Forage",
+    "year": "2024",
+    "url": "https://www.credly.com/users/ashok-sutar/badges",
+    "icon_emoji": "📊",
+    "icon_class": "orange",
+    "source": "manual"
+  },
+  {
+    "name": "Microsoft Excel — Data Analysis",
+    "issuer": "Microsoft",
+    "year": "2024",
+    "url": "https://www.credly.com/users/ashok-sutar/badges",
+    "icon_emoji": "📈",
+    "icon_class": "green",
+    "source": "manual"
+  },
+  {
+    "name": "McKinsey Forward Program",
+    "issuer": "McKinsey & Company",
+    "year": "2026",
+    "url": "https://www.credly.com/users/ashok-sutar/badges",
+    "icon_emoji": "🧠",
+    "icon_class": "purple",
+    "source": "manual"
+  }
+]
