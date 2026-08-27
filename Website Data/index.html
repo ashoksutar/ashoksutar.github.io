@@ -1260,8 +1260,9 @@
         <div class="project-num">01 ——</div>
         <div class="project-title">AI-Powered Data Pipeline</div>
         <p class="project-desc">
-          End-to-end data pipeline with an AI layer powered by Gemini 2.0 Flash.
-          React frontend, FastAPI backend, deployed on Google Cloud Run.
+          Upload a CSV, get back structural stats plus AI-generated insights and
+          cleaning suggestions from Gemini 3.6 Flash. React frontend, Cloudflare
+          Workers backend — no server to keep warm.
         </p>
         <button class="case-study-toggle" onclick="toggleCase(this)">
           <span>▶</span> Case Study
@@ -1269,26 +1270,25 @@
         <div class="case-study-body">
           <div class="cs-row">
             <div class="cs-label">Problem</div>
-            <div class="cs-value">Manual data processing was slow and error-prone — needed an automated AI layer to parse, transform, and summarize datasets.</div>
+            <div class="cs-value">Exploring a new dataset usually means writing the same boilerplate every time — check shapes, dtypes, missing values — before you can even start asking real questions about it.</div>
           </div>
           <div class="cs-row">
             <div class="cs-label">Solution</div>
-            <div class="cs-value">Built a React + FastAPI pipeline with Gemini 2.0 Flash handling data interpretation. Containerized and deployed on Cloud Run for scale-to-zero efficiency.</div>
+            <div class="cs-value">Built a React frontend and a Cloudflare Workers backend (hand-written CSV parser, no pandas) that computes structural stats, then hands a sample to Gemini 3.6 Flash via its REST API for a written summary, insights, and suggested cleaning steps. Runs in mock mode with no API key so the UI is fully demoable even without live AI.</div>
           </div>
           <div class="cs-row">
             <div class="cs-label">Impact</div>
-            <div class="cs-value">Reduced manual review time to near-zero. First project deployed on production GCP infrastructure.</div>
+            <div class="cs-value">On a test dataset with scattered missing fields, it correctly identified that missing salaries clustered in one department and missing ages in another — a real pattern, not templated output.</div>
           </div>
         </div>
         <div class="project-tags">
           <span class="project-tag">React</span>
-          <span class="project-tag">FastAPI</span>
-          <span class="project-tag">Gemini 2.0</span>
-          <span class="project-tag">Cloud Run</span>
+          <span class="project-tag">Cloudflare Workers</span>
+          <span class="project-tag">Gemini 3.6</span>
         </div>
         <div class="project-links">
-          <a href="#" class="project-link">Live Demo →</a>
-          <a href="https://github.com/ashoksutar" target="_blank" class="project-link secondary">GitHub ↗</a>
+          <a href="https://ai-data-pipeline.ashoksutar393.workers.dev" target="_blank" rel="noopener noreferrer" class="project-link">Live Demo →</a>
+          <a href="https://github.com/ashoksutar/ai-data-pipeline" target="_blank" class="project-link secondary">GitHub ↗</a>
         </div>
       </div>
 
