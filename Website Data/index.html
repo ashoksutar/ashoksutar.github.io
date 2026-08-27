@@ -717,6 +717,58 @@
     .project-link.secondary { color: var(--muted); }
     .project-link.secondary:hover { color: var(--text); }
 
+    .turnstile-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(8,8,14,0.72);
+      backdrop-filter: blur(4px);
+      z-index: 999;
+      align-items: center;
+      justify-content: center;
+    }
+    .turnstile-overlay.open { display: flex; }
+    .turnstile-modal {
+      background: #15151f;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 32px;
+      max-width: 360px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+    .turnstile-modal h3 {
+      margin: 0 0 8px;
+      font-size: 1.05rem;
+      color: var(--text);
+    }
+    .turnstile-modal p {
+      margin: 0 0 20px;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    .turnstile-widget-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+    .turnstile-cancel {
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 0.8rem;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+    .turnstile-cancel:hover { color: var(--text); }
+    .turnstile-error {
+      color: #f87171;
+      font-size: 0.8rem;
+      margin-top: 10px;
+      display: none;
+    }
+
     /* CERTIFICATIONS */
     #certifications {
       padding: 80px 48px;
@@ -989,6 +1041,7 @@
       .section-divider { padding: 0 24px; }
     }
   </style>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
 
@@ -1287,7 +1340,7 @@
           <span class="project-tag">Gemini 3.6</span>
         </div>
         <div class="project-links">
-          <a href="https://ai-data-pipeline.ashoksutar393.workers.dev" target="_blank" rel="noopener noreferrer" class="project-link">Live Demo →</a>
+          <a href="#" class="project-link" onclick="showCaptcha('https://ai-data-pipeline.ashoksutar393.workers.dev'); return false;">Live Demo →</a>
           <a href="https://github.com/ashoksutar/ai-data-pipeline" target="_blank" class="project-link secondary">GitHub ↗</a>
         </div>
       </div>
@@ -1501,6 +1554,54 @@
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
+    // Turnstile-gated live demo links
+    let pendingDemoUrl = null;
+    let turnstileRendered = false;
+
+    function showCaptcha(demoUrl) {
+      pendingDemoUrl = demoUrl;
+      document.getElementById('turnstile-error').style.display = 'none';
+      document.getElementById('turnstile-overlay').classList.add('open');
+      if (!turnstileRendered && window.turnstile) {
+        turnstile.render('#turnstile-widget');
+        turnstileRendered = true;
+      }
+    }
+
+    function hideCaptcha() {
+      document.getElementById('turnstile-overlay').classList.remove('open');
+      if (turnstileRendered && window.turnstile) {
+        turnstile.reset('#turnstile-widget');
+      }
+      pendingDemoUrl = null;
+    }
+
+    function onTurnstileSuccess(token) {
+      fetch('https://ai-data-pipeline.ashoksutar393.workers.dev/verify-turnstile', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ token })
+      })
+        .then(r => r.json())
+        .then(data => {
+          if (data.success) {
+            const url = pendingDemoUrl;
+            hideCaptcha();
+            window.open(url, '_blank', 'noopener,noreferrer');
+          } else {
+            onTurnstileError();
+          }
+        })
+        .catch(onTurnstileError);
+    }
+
+    function onTurnstileError() {
+      document.getElementById('turnstile-error').style.display = 'block';
+      if (turnstileRendered && window.turnstile) {
+        turnstile.reset('#turnstile-widget');
+      }
+    }
+
     // Case study toggle
     function toggleCase(btn) {
       const body = btn.nextElementSibling;
@@ -1589,5 +1690,17 @@
 
     loadCertifications();
   </script>
+  <div class="turnstile-overlay" id="turnstile-overlay">
+    <div class="turnstile-modal">
+      <h3>Quick check before you continue</h3>
+      <p>Verifying you're human helps keep the demo available for everyone.</p>
+      <div class="turnstile-widget-wrap">
+        <div class="cf-turnstile" id="turnstile-widget" data-sitekey="0x4AAAAAAEeAtDX2Riaufao7" data-callback="onTurnstileSuccess" data-error-callback="onTurnstileError"></div>
+      </div>
+      <button class="turnstile-cancel" onclick="hideCaptcha()">Cancel</button>
+      <div class="turnstile-error" id="turnstile-error">Verification failed. Please try again.</div>
+    </div>
+  </div>
+
 </body>
 </html>
