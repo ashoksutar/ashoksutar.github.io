@@ -1041,7 +1041,7 @@
       .section-divider { padding: 0 24px; }
     }
   </style>
-  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
 </head>
 <body>
 
@@ -1573,7 +1573,22 @@
       document.getElementById('turnstile-error').style.display = 'none';
       document.getElementById('turnstile-overlay').classList.add('open');
       if (!turnstileRendered && window.turnstile) {
-        turnstile.render('#turnstile-widget');
+        // Pass config explicitly rather than relying on data-* attributes
+        // on the container (Cloudflare's own recommendation for widgets
+        // that render on-demand rather than always being present at page
+        // load) -- this, combined with the api.js render=explicit query
+        // param above, ensures the widget only ever runs a challenge when
+        // showCaptcha() actually calls render(), never automatically on
+        // page load. An implicit auto-render (which the previous
+        // data-sitekey attribute enabled, even inside this hidden modal)
+        // was firing onTurnstileSuccess before pendingDemoUrl/pendingTab
+        // were ever set by an actual click, which is what caused the
+        // redirect to ashoksutar.me/null.
+        turnstile.render('#turnstile-widget', {
+          sitekey: '0x4AAAAAAEeAtDX2Riaufao7',
+          callback: onTurnstileSuccess,
+          'error-callback': onTurnstileError,
+        });
         turnstileRendered = true;
       }
     }
@@ -1731,7 +1746,7 @@
       <h3>Quick check before you continue</h3>
       <p>Verifying you're human helps keep the demo available for everyone.</p>
       <div class="turnstile-widget-wrap">
-        <div class="cf-turnstile" id="turnstile-widget" data-sitekey="0x4AAAAAAEeAtDX2Riaufao7" data-callback="onTurnstileSuccess" data-error-callback="onTurnstileError"></div>
+        <div id="turnstile-widget"></div>
       </div>
       <button class="turnstile-cancel" onclick="hideCaptcha()">Cancel</button>
       <div class="turnstile-error" id="turnstile-error">Verification failed. Please try again.</div>
