@@ -1556,10 +1556,20 @@
 
     // Turnstile-gated live demo links
     let pendingDemoUrl = null;
+    let pendingTab = null;
     let turnstileRendered = false;
 
     function showCaptcha(demoUrl) {
       pendingDemoUrl = demoUrl;
+      // Open the destination tab synchronously, right here inside the
+      // click handler -- this is the only point in the flow that's still
+      // directly inside a user gesture. Everything after this (Turnstile's
+      // own async callback, then the /verify-turnstile fetch) happens on a
+      // later tick, and browsers silently block window.open() called from
+      // there since it's no longer "trusted" as user-initiated. Opening a
+      // blank tab now and pointing it at the real URL later (once
+      // verification succeeds) sidesteps that entirely.
+      pendingTab = window.open('about:blank', '_blank', 'noopener,noreferrer');
       document.getElementById('turnstile-error').style.display = 'none';
       document.getElementById('turnstile-overlay').classList.add('open');
       if (!turnstileRendered && window.turnstile) {
@@ -1574,6 +1584,14 @@
         turnstile.reset('#turnstile-widget');
       }
       pendingDemoUrl = null;
+      // Cancel (or a failed verification, via onTurnstileError below) can
+      // reach here with a blank tab still open from showCaptcha's
+      // synchronous window.open -- close it instead of leaving an orphaned
+      // about:blank tab hanging around.
+      if (pendingTab && !pendingTab.closed) {
+        pendingTab.close();
+      }
+      pendingTab = null;
     }
 
     function onTurnstileSuccess(token) {
@@ -1586,8 +1604,22 @@
         .then(data => {
           if (data.success) {
             const url = pendingDemoUrl;
+            const tab = pendingTab;
+            // Clear pendingTab before hideCaptcha() runs, since its
+            // cleanup closes whatever's still in pendingTab -- and this
+            // is the one path where we want to keep it open and redirect
+            // it, not close it.
+            pendingTab = null;
             hideCaptcha();
-            window.open(url, '_blank', 'noopener,noreferrer');
+            if (tab && !tab.closed) {
+              tab.location.href = url;
+            } else {
+              // Popup was blocked even for the synchronous about:blank
+              // open (rare, but some strict blocker configs still catch
+              // it) -- fall back to a same-tab navigation so the user
+              // still gets to the demo rather than silently nothing.
+              window.location.href = url;
+            }
           } else {
             onTurnstileError();
           }
@@ -1600,6 +1632,10 @@
       if (turnstileRendered && window.turnstile) {
         turnstile.reset('#turnstile-widget');
       }
+      if (pendingTab && !pendingTab.closed) {
+        pendingTab.close();
+      }
+      pendingTab = null;
     }
 
     // Case study toggle
